@@ -1,0 +1,2075 @@
+{
+  "id": 1,
+  "title": "Bunyard Server Stack",
+  "originalTitle": "Bunyard Server Stack",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "200px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Main Home DB",
+          "decimals": 0,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 5,
+          "interval": ">90s",
+          "isNew": true,
+          "leftYAxisLabel": "Usage",
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "hideZero": false,
+            "max": true,
+            "min": true,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Memory",
+              "fill": 0,
+              "linewidth": 2
+            }
+          ],
+          "span": 5,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "CPU1",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "esxi_stats",
+              "query": "SELECT mean(\"value\") FROM \"esxi_stats\" WHERE \"type\" = 'cpu_usage' AND \"cpu_number\" = '1' AND \"host\" = 'esxi1' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type",
+                  "operator": "=",
+                  "value": "cpu_usage"
+                },
+                {
+                  "condition": "AND",
+                  "key": "cpu_number",
+                  "operator": "=",
+                  "value": "1"
+                },
+                {
+                  "condition": "AND",
+                  "key": "host",
+                  "operator": "=",
+                  "value": "esxi1"
+                }
+              ]
+            },
+            {
+              "alias": "CPU2",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "esxi_stats",
+              "query": "SELECT mean(\"value\") FROM \"esxi_stats\" WHERE \"type\" = 'cpu_usage' AND \"cpu_number\" = '2' AND \"host\" = 'esxi1' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type",
+                  "operator": "=",
+                  "value": "cpu_usage"
+                },
+                {
+                  "condition": "AND",
+                  "key": "cpu_number",
+                  "operator": "=",
+                  "value": "2"
+                },
+                {
+                  "condition": "AND",
+                  "key": "host",
+                  "operator": "=",
+                  "value": "esxi1"
+                }
+              ]
+            },
+            {
+              "alias": "CPU3",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "esxi_stats",
+              "query": "SELECT mean(\"value\") FROM \"esxi_stats\" WHERE \"type\" = 'cpu_usage' AND \"cpu_number\" = '3' AND \"host\" = 'esxi1' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type",
+                  "operator": "=",
+                  "value": "cpu_usage"
+                },
+                {
+                  "condition": "AND",
+                  "key": "cpu_number",
+                  "operator": "=",
+                  "value": "3"
+                },
+                {
+                  "condition": "AND",
+                  "key": "host",
+                  "operator": "=",
+                  "value": "esxi1"
+                }
+              ]
+            },
+            {
+              "alias": "CPU4",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "esxi_stats",
+              "query": "SELECT mean(\"value\") FROM \"esxi_stats\" WHERE \"type\" = 'cpu_usage' AND \"cpu_number\" = '4' AND \"host\" = 'esxi1' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type",
+                  "operator": "=",
+                  "value": "cpu_usage"
+                },
+                {
+                  "condition": "AND",
+                  "key": "cpu_number",
+                  "operator": "=",
+                  "value": "4"
+                },
+                {
+                  "condition": "AND",
+                  "key": "host",
+                  "operator": "=",
+                  "value": "esxi1"
+                }
+              ]
+            },
+            {
+              "alias": "Memory",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "esxi_stats",
+              "query": "SELECT mean(\"value\") FROM \"esxi_stats\" WHERE \"type\" = 'memory_usage' AND \"host\" = 'esxi1' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "E",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "type",
+                  "operator": "=",
+                  "value": "memory_usage"
+                },
+                {
+                  "condition": "AND",
+                  "key": "host",
+                  "operator": "=",
+                  "value": "esxi1"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ESXi Main Resource Usage",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "percent",
+            "none"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Main Home DB",
+          "decimals": 0,
+          "editable": true,
+          "error": false,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": 0,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 4,
+          "interval": ">60s",
+          "isNew": true,
+          "leftYAxisLabel": "Latency",
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "rightYAxisLabel": "Packet Loss",
+          "seriesOverrides": [
+            {
+              "alias": "Loss",
+              "bars": true,
+              "color": "#890F02",
+              "lines": false,
+              "pointradius": 1,
+              "points": true,
+              "yaxis": 2
+            },
+            {
+              "alias": "Max",
+              "fillBelowTo": "Min",
+              "lines": false
+            },
+            {
+              "alias": "Min",
+              "lines": false
+            },
+            {
+              "alias": "Avg",
+              "fillBelowTo": "Min",
+              "lines": false
+            },
+            {
+              "alias": "Min",
+              "lines": false
+            }
+          ],
+          "span": 5,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Min",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "previous"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "ping",
+              "query": "SELECT min(\"value\") FROM \"ping\" WHERE \"host\" = '8.8.8.8' AND \"measurement\" = 'min' AND $timeFilter GROUP BY time($interval) fill(previous)",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "min"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "8.8.8.8"
+                },
+                {
+                  "condition": "AND",
+                  "key": "measurement",
+                  "operator": "=",
+                  "value": "min"
+                }
+              ]
+            },
+            {
+              "alias": "Avg",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "previous"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "ping",
+              "query": "SELECT mean(\"value\") FROM \"ping\" WHERE \"host\" = '8.8.8.8' AND \"measurement\" = 'avg' AND $timeFilter GROUP BY time($interval) fill(previous)",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "8.8.8.8"
+                },
+                {
+                  "condition": "AND",
+                  "key": "measurement",
+                  "operator": "=",
+                  "value": "avg"
+                }
+              ]
+            },
+            {
+              "alias": "Max",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "previous"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "ping",
+              "query": "SELECT max(\"value\") FROM \"ping\" WHERE \"host\" = '8.8.8.8' AND \"measurement\" = 'max' AND $timeFilter GROUP BY time($interval) fill(previous)",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "8.8.8.8"
+                },
+                {
+                  "condition": "AND",
+                  "key": "measurement",
+                  "operator": "=",
+                  "value": "max"
+                }
+              ]
+            },
+            {
+              "alias": "Loss",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "previous"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "hide": false,
+              "measurement": "ping",
+              "query": "SELECT mean(\"value\") FROM \"ping\" WHERE \"host\" = '8.8.8.8' AND \"measurement\" = 'loss' AND $timeFilter GROUP BY time($interval) fill(previous)",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "8.8.8.8"
+                },
+                {
+                  "condition": "AND",
+                  "key": "measurement",
+                  "operator": "=",
+                  "value": "loss"
+                }
+              ]
+            }
+          ],
+          "timeFrom": "30m",
+          "timeShift": null,
+          "title": "Smokeping Google DNS",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "transparent": false,
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "ms",
+            "percent"
+          ]
+        },
+        {
+          "content": "<center><span style=\"display: block !important; width: 180px; text-align: center; font-family: sans-serif; font-size: 12px;\"><a href=\"http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:43074.1.99999&bannertypeclick=wu_simpleblack\" title=\"Sunbury, Ohio Weather Forecast\" target=\"_blank\"><img src=\"http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_simpleblack&airportcode=KDLZ&ForcedCity=Sunbury&ForcedState=OH&zip=43074&language=EN\" alt=\"Find more about Weather in Sunbury, OH\" width=\"160\" /></a><br><a href=\"http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:43074.1.99999&bannertypeclick=wu_simpleblack\" title=\"Get latest Weather Forecast updates\" style=\"font-family: sans-serif; font-size: 12px\" target=\"_blank\">Click for weather forecast</a></span></center>",
+          "editable": true,
+          "error": false,
+          "id": 10,
+          "isNew": true,
+          "links": [],
+          "mode": "html",
+          "span": 2,
+          "style": {},
+          "title": "Weather",
+          "type": "text"
+        }
+      ],
+      "title": "Row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Main Home DB",
+          "editable": true,
+          "error": false,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 6,
+          "interval": ">90s",
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Main Trunk",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "network_traffic",
+              "query": "SELECT sum(\"value\") FROM \"network_traffic\" WHERE \"host\" = 'zyxel1' AND \"interface\" = 'gig1' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "sum"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "zyxel1"
+                },
+                {
+                  "condition": "AND",
+                  "key": "interface",
+                  "operator": "=",
+                  "value": "gig1"
+                }
+              ]
+            },
+            {
+              "alias": "2TB NAS",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "network_traffic",
+              "query": "SELECT sum(\"value\") FROM \"network_traffic\" WHERE \"host\" = 'zyxel1' AND \"interface\" = 'gig2' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "sum"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "zyxel1"
+                },
+                {
+                  "condition": "AND",
+                  "key": "interface",
+                  "operator": "=",
+                  "value": "gig2"
+                }
+              ]
+            },
+            {
+              "alias": "VM1 VMnetwork",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "network_traffic",
+              "query": "SELECT sum(\"value\") FROM \"network_traffic\" WHERE \"host\" = 'zyxel1' AND \"interface\" = 'gig9' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "sum"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "zyxel1"
+                },
+                {
+                  "condition": "AND",
+                  "key": "interface",
+                  "operator": "=",
+                  "value": "gig9"
+                }
+              ]
+            },
+            {
+              "alias": "QNAP iSCSI",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "network_traffic",
+              "query": "SELECT sum(\"value\") FROM \"network_traffic\" WHERE \"host\" = 'zyxel1' AND \"interface\" = 'gig14' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "sum"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "zyxel1"
+                },
+                {
+                  "condition": "AND",
+                  "key": "interface",
+                  "operator": "=",
+                  "value": "gig14"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Core Network Traffic (Aggregate)",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "bps",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Main Home DB",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "interval": ">90s",
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Outbound Main/Media",
+              "transform": "negative-Y"
+            },
+            {
+              "alias": "Outbound Kids/Guests",
+              "transform": "negative-Y"
+            }
+          ],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Inbound Main/Media",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "network_traffic",
+              "query": "SELECT mean(\"value\") FROM \"network_traffic\" WHERE \"host\" = 'sophosutm' AND \"interface\" = 'eth2' AND \"direction\" = 'inbound' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "sophosutm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "interface",
+                  "operator": "=",
+                  "value": "eth2"
+                },
+                {
+                  "condition": "AND",
+                  "key": "direction",
+                  "operator": "=",
+                  "value": "inbound"
+                }
+              ]
+            },
+            {
+              "alias": "Inbound Kids/Guest",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "network_traffic",
+              "query": "SELECT mean(\"value\") FROM \"network_traffic\" WHERE \"host\" = 'sophosutm' AND \"interface\" = 'eth1' AND \"direction\" = 'inbound' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "sophosutm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "interface",
+                  "operator": "=",
+                  "value": "eth1"
+                },
+                {
+                  "condition": "AND",
+                  "key": "direction",
+                  "operator": "=",
+                  "value": "inbound"
+                }
+              ]
+            },
+            {
+              "alias": "Outbound Main/Media",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "network_traffic",
+              "query": "SELECT mean(\"value\") FROM \"network_traffic\" WHERE \"host\" = 'sophosutm' AND \"interface\" = 'eth2' AND \"direction\" = 'outbound' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "sophosutm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "interface",
+                  "operator": "=",
+                  "value": "eth2"
+                },
+                {
+                  "condition": "AND",
+                  "key": "direction",
+                  "operator": "=",
+                  "value": "outbound"
+                }
+              ]
+            },
+            {
+              "alias": "Outbound Kids/Guests",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "network_traffic",
+              "query": "SELECT mean(\"value\") FROM \"network_traffic\" WHERE \"host\" = 'sophosutm' AND \"interface\" = 'eth1' AND \"direction\" = 'outbound' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=",
+                  "value": "sophosutm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "interface",
+                  "operator": "=",
+                  "value": "eth1"
+                },
+                {
+                  "condition": "AND",
+                  "key": "direction",
+                  "operator": "=",
+                  "value": "outbound"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "WAN Usage",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "Bps",
+            "none"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Main Home DB",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 9,
+          "interval": ">90s",
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "rightYAxisLabel": "Latency",
+          "seriesOverrides": [
+            {
+              "alias": "Ping",
+              "yaxis": 2
+            },
+            {
+              "alias": "Download",
+              "yaxis": 1
+            },
+            {
+              "alias": "Upload",
+              "yaxis": 1
+            }
+          ],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Ping",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "speedtest",
+              "query": "SELECT mean(\"value\") FROM \"speedtest\" WHERE \"metric\" = 'ping' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "metric",
+                  "operator": "=",
+                  "value": "ping"
+                }
+              ]
+            },
+            {
+              "alias": "Download",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "speedtest",
+              "query": "SELECT mean(\"value\") FROM \"speedtest\" WHERE \"metric\" = 'download' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "metric",
+                  "operator": "=",
+                  "value": "download"
+                }
+              ]
+            },
+            {
+              "alias": "Upload",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "speedtest",
+              "query": "SELECT mean(\"value\") FROM \"speedtest\" WHERE \"metric\" = 'upload' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "metric",
+                  "operator": "=",
+                  "value": "upload"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Speedtest Stats",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "bps",
+            "ms"
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Main Home DB",
+          "decimals": 1,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "hideTimeOverride": false,
+          "id": 1,
+          "interval": ">120s",
+          "isNew": true,
+          "leftYAxisLabel": "",
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "hideEmpty": false,
+            "hideZero": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "rightYAxisLabel": "",
+          "seriesOverrides": [
+            {
+              "alias": "Temperature",
+              "yaxis": 1
+            },
+            {
+              "alias": "Relative Humidity",
+              "yaxis": 2
+            }
+          ],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Temperature",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "server_stack_temp",
+              "query": "SELECT mean(\"value\") FROM \"server_stack_temp\" WHERE $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "alias": "Relative Humidity",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "server_stack_humidity",
+              "query": "SELECT mean(\"value\") FROM \"server_stack_humidity\" WHERE $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Basement Temp/Humidity",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "transparent": false,
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "farenheit",
+            "humidity"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Main Home DB",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 7,
+          "interval": ">90s",
+          "isNew": true,
+          "leftYAxisLabel": "",
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "rightYAxisLabel": "Load",
+          "seriesOverrides": [
+            {
+              "alias": "Input Voltage",
+              "yaxis": 1
+            },
+            {
+              "alias": "Output Voltage",
+              "yaxis": 1
+            },
+            {
+              "alias": "Load Watts",
+              "yaxis": 2
+            }
+          ],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Input Voltage",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "ups_stats",
+              "query": "SELECT mean(\"value\") FROM \"ups_stats\" WHERE \"ups\" = 'primary_stack' AND \"metric\" = 'involts' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "ups",
+                  "operator": "=",
+                  "value": "primary_stack"
+                },
+                {
+                  "condition": "AND",
+                  "key": "metric",
+                  "operator": "=",
+                  "value": "involts"
+                }
+              ]
+            },
+            {
+              "alias": "Output Voltage",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "ups_stats",
+              "query": "SELECT mean(\"value\") FROM \"ups_stats\" WHERE \"ups\" = 'primary_stack' AND \"metric\" = 'outvolts' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "ups",
+                  "operator": "=",
+                  "value": "primary_stack"
+                },
+                {
+                  "condition": "AND",
+                  "key": "metric",
+                  "operator": "=",
+                  "value": "outvolts"
+                }
+              ]
+            },
+            {
+              "alias": "Load Watts",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "ups_stats",
+              "query": "SELECT mean(\"value\") FROM \"ups_stats\" WHERE \"ups\" = 'primary_stack' AND \"metric\" = 'loadwatt' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "ups",
+                  "operator": "=",
+                  "value": "primary_stack"
+                },
+                {
+                  "condition": "AND",
+                  "key": "metric",
+                  "operator": "=",
+                  "value": "loadwatt"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "UPS Voltage/Load",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "volt",
+            "watt"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "Main Home DB",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 8,
+          "interval": ">90s",
+          "isNew": true,
+          "leftYAxisLabel": "",
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "rightYAxisLabel": "Runtime",
+          "seriesOverrides": [
+            {
+              "alias": "Battery Capacity",
+              "yaxis": 1
+            },
+            {
+              "alias": "Load Percent",
+              "yaxis": 1
+            },
+            {
+              "alias": "Estimated Runtime",
+              "yaxis": 2
+            }
+          ],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Battery Capacity",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "ups_stats",
+              "query": "SELECT mean(\"value\") FROM \"ups_stats\" WHERE \"ups\" = 'primary_stack' AND \"metric\" = 'capacity' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "ups",
+                  "operator": "=",
+                  "value": "primary_stack"
+                },
+                {
+                  "condition": "AND",
+                  "key": "metric",
+                  "operator": "=",
+                  "value": "capacity"
+                }
+              ]
+            },
+            {
+              "alias": "Estimated Runtime",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "ups_stats",
+              "query": "SELECT mean(\"value\") FROM \"ups_stats\" WHERE \"ups\" = 'primary_stack' AND \"metric\" = 'runtime' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "ups",
+                  "operator": "=",
+                  "value": "primary_stack"
+                },
+                {
+                  "condition": "AND",
+                  "key": "metric",
+                  "operator": "=",
+                  "value": "runtime"
+                }
+              ]
+            },
+            {
+              "alias": "Load Percent",
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "ups_stats",
+              "query": "SELECT mean(\"value\") FROM \"ups_stats\" WHERE \"ups\" = 'primary_stack' AND \"metric\" = 'loadpercent' AND $timeFilter GROUP BY time($interval) fill(null)",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "ups",
+                  "operator": "=",
+                  "value": "primary_stack"
+                },
+                {
+                  "condition": "AND",
+                  "key": "metric",
+                  "operator": "=",
+                  "value": "loadpercent"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "UPS Capacity/Load/Runtime",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "percent",
+            "m"
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "now": true,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": "1m",
+  "schemaVersion": 8,
+  "version": 86,
+  "links": []
+}
