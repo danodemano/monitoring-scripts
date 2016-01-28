@@ -11,3 +11,5 @@ chkconfig --add script-name
 chkconfig script-name on
 service script-name start
 ```
+
+The "dashboard" file contains an export of the dashboard displayed here: http://i.imgur.com/iwtQcsL.jpg
